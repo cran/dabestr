@@ -110,6 +110,7 @@ Statistical Science: vol. 11, no. 3, 1996. pp. 189–228.
 }
 
 \examples{
+
 # Performing unpaired (two independent groups) analysis.
 unpaired_mean_diff <- dabest(iris, Species, Petal.Width,
                              idx = c("setosa", "versicolor"),
@@ -139,7 +140,7 @@ paired_mean_diff          <- dabest(
                               paired = TRUE, id.col = ID
                               )
 
-\donttest{
+
 # Computing the median difference.
 unpaired_median_diff      <- dabest(
                               iris, Species, Petal.Width,
@@ -158,6 +159,7 @@ unpaired_mean_diff_90_ci  <- dabest(
                               )
 
 
+
 # Using pipes to munge your data and then passing to `dabest`.
 # First, we generate some synthetic data.
 set.seed(12345)
@@ -174,7 +176,7 @@ meandiff <- long.data \%>\%
               dabest(x = Group, y = Measurement,
                      idx = c("Control", "Test1", "Test2"),
                      paired = FALSE)
-}
+
 
 
 }

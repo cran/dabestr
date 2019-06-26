@@ -1,7 +1,7 @@
 Package: dabestr
 Type: Package
 Title: Data Analysis using Bootstrap-Coupled Estimation
-Version: 0.2.0
+Version: 0.2.1
 Authors@R: c(
     person("Joses W.", "Ho", 
           email = "joseshowh@gmail.com", role = c("cre", "aut")),
@@ -20,8 +20,12 @@ Description: Data Analysis using Bootstrap-Coupled ESTimation.
     display the underlying distribution.
     2. It presents the effect size as a bootstrap 95% confidence interval on a 
     separate but aligned axes.
-    Estimation plots are introduced in Ho et al (2018) <doi:10.1101/377978>.
+    Estimation plots are introduced in Ho et al., Nature Methods 2019, 1548-7105. 
+    <doi:10.1038/s41592-019-0470-3>. 
+    The free-to-view PDF is located at <https://rdcu.be/bHhJ4>.
 License: file LICENSE
+URL: https://github.com/ACCLAB/dabestr
+BugReports: https://github.com/ACCLAB/dabestr/issues
 Encoding: UTF-8
 LazyData: true
 Depends: R (>= 3.5.0), boot, magrittr
@@ -31,8 +35,8 @@ RoxygenNote: 6.1.1
 Suggests: knitr, rmarkdown, tufte, testthat, vdiffr
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2019-01-05 10:25:54 UTC; jacuzzijo
+Packaged: 2019-06-26 05:52:36 UTC; whho
 Author: Joses W. Ho [cre, aut],
   Tayfun Tumkaya [aut]
 Repository: CRAN
-Date/Publication: 2019-01-07 19:10:04 UTC
+Date/Publication: 2019-06-26 11:50:10 UTC

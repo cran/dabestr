@@ -102,6 +102,7 @@
 #'
 #'
 #' @examples
+#'
 #' # Performing unpaired (two independent groups) analysis.
 #' unpaired_mean_diff <- dabest(iris, Species, Petal.Width,
 #'                              idx = c("setosa", "versicolor"),
@@ -131,7 +132,7 @@
 #'                               paired = TRUE, id.col = ID
 #'                               )
 #'
-#' \donttest{
+#'
 #' # Computing the median difference.
 #' unpaired_median_diff      <- dabest(
 #'                               iris, Species, Petal.Width,
@@ -150,6 +151,7 @@
 #'                               )
 #'
 #'
+#'
 #' # Using pipes to munge your data and then passing to `dabest`.
 #' # First, we generate some synthetic data.
 #' set.seed(12345)
@@ -166,7 +168,7 @@
 #'               dabest(x = Group, y = Measurement,
 #'                      idx = c("Control", "Test1", "Test2"),
 #'                      paired = FALSE)
-#'}
+#'
 #'
 #'
 #' @section References:
@@ -379,8 +381,10 @@ dabest <- function(
   #### Assemble only the data used to create the plot. ####
   data.out <- .data
 
-  data.out[[x_quoname]] <- forcats::as_factor(data.out[[x_quoname]],
-                                              all_groups)
+  # New in v0.2.1 patch.
+  # Basically, the `ellipsis` package has been updated,
+  # and now forcats::as_factor() should only take the object to coerce.
+  data.out[[x_quoname]] <- forcats::as_factor(data.out[[x_quoname]])
 
   data.out <- dplyr::filter(data.out, !!x_enquo %in% all_groups)
 
