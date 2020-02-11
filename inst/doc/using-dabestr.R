@@ -1,4 +1,4 @@
-## ----create.data, message=FALSE------------------------------------------
+## ----create.data, message=FALSE-----------------------------------------------
 library(dplyr)
 
 set.seed(54321)
@@ -27,7 +27,7 @@ my.data   <-
 
 head(my.data)
 
-## ----two.group.unpaired--------------------------------------------------
+## ----two.group.unpaired-------------------------------------------------------
 
 library(dabestr)
 
@@ -43,10 +43,10 @@ two.group.unpaired <-
 # Calling the object automatically prints out a summary.
 two.group.unpaired 
 
-## ----create.gardner.altman.plot, fig.width = 7, fig.height = 4-----------
+## ----create.gardner.altman.plot, fig.width = 7, fig.height = 4----------------
 plot(two.group.unpaired, color.column = Gender)
 
-## ----two.group.paired, fig.width = 7, fig.height = 4---------------------
+## ----two.group.paired, fig.width = 7, fig.height = 4--------------------------
 two.group.paired <- 
   my.data %>%
   dabest(Group, Measurement, 
@@ -58,7 +58,7 @@ two.group.paired
 
 plot(two.group.paired, color.column = Gender)
 
-## ----multi.two.group.unpaired, fig.width = 7, fig.height = 4-------------
+## ----multi.two.group.unpaired, fig.width = 7, fig.height = 4------------------
 
 multi.two.group.unpaired <- 
   my.data %>%
@@ -76,7 +76,7 @@ plot(multi.two.group.unpaired, color.column = Gender)
 plot(multi.two.group.unpaired, color.column = Gender, 
      group.summaries = "median_quartiles")
 
-## ----multi.two.group.paired, fig.width = 7, fig.height = 4---------------
+## ----multi.two.group.paired, fig.width = 7, fig.height = 4--------------------
 
 multi.two.group.paired <- 
   my.data %>%
@@ -90,7 +90,7 @@ multi.two.group.paired
 
 plot(multi.two.group.paired, color.column = Gender, slopegraph = TRUE)
 
-## ----shared.control, fig.width = 7, fig.height = 4-----------------------
+## ----shared.control, fig.width = 7, fig.height = 4----------------------------
 
 shared.control <- 
   my.data %>%
@@ -104,7 +104,7 @@ shared.control
 plot(shared.control, color.column = Gender, rawplot.type = "swarmplot")
 
 
-## ----multi.group, fig.width = 7, fig.height = 4--------------------------
+## ----multi.group, fig.width = 7, fig.height = 4-------------------------------
 
 multi.group <- 
   my.data %>%
@@ -118,7 +118,7 @@ multi.group
 
 plot(multi.group, color.column = Gender)
 
-## ----ylim.demo, fig.width = 7, fig.height = 4----------------------------
+## ----ylim.demo, fig.width = 7, fig.height = 4---------------------------------
 
 plot(multi.group, color.column = Gender,
      rawplot.ylim = c(-100, 200),
@@ -126,23 +126,34 @@ plot(multi.group, color.column = Gender,
     )
 
 
-## ----markersize.groupwidth.demo, fig.width = 7, fig.height = 4-----------
+## ----markersize.groupwidth.demo, fig.width = 7, fig.height = 4----------------
 
 plot(multi.group, color.column = Gender,
      rawplot.markersize = 1,
      rawplot.groupwidth = 0.4
     )
 
-## ----ylabel.demo, fig.width = 7, fig.height = 4--------------------------
+## ----ylabel.demo, fig.width = 7, fig.height = 4-------------------------------
 
 plot(multi.group, color.column = Gender,
      rawplot.ylabel = "Rawplot Title?",
      effsize.ylabel = "My delta plot!"
     )
 
-## ----palette.demo, fig.width = 7, fig.height = 4-------------------------
+## ----ylabel.fontsize, fig.width = 7, fig.height = 4---------------------------
+
+plot(multi.group, color.column = Gender,
+     axes.title.fontsize = 10 # default is 14.
+    )
+
+## ----palette.demo, fig.width = 7, fig.height = 4------------------------------
 
 plot(multi.group, color.column = Gender,
      palette = "Dark2" # The default is "Set2".
+     )
+
+## ----different.theme, fig.width = 7, fig.height = 4---------------------------
+plot(multi.group, color.column = Gender,
+     theme = ggplot2::theme_gray()
      )
 
