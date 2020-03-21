@@ -1,7 +1,7 @@
 Package: dabestr
 Type: Package
 Title: Data Analysis using Bootstrap-Coupled Estimation
-Version: 0.2.3
+Version: 0.2.4
 Authors@R: c(
     person("Joses W.", "Ho", 
           email = "joseshowh@gmail.com", role = c("cre", "aut")),
@@ -30,13 +30,13 @@ Encoding: UTF-8
 LazyData: true
 Depends: R (>= 3.5.0), boot, magrittr
 Imports: cowplot, dplyr, ellipsis, ggplot2 (>= 3.2), forcats, ggforce,
-        ggbeeswarm, rlang, simpleboot, stringr, tibble, tidyr
-RoxygenNote: 7.0.2
+        ggbeeswarm, plyr, rlang, simpleboot, stringr, tibble, tidyr
+RoxygenNote: 7.1.0
 Suggests: knitr, rmarkdown, tufte, testthat, vdiffr
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2020-02-11 07:46:56 UTC; whho
+Packaged: 2020-03-21 06:01:38 UTC; jacuzzijo
 Author: Joses W. Ho [cre, aut],
   Tayfun Tumkaya [aut]
 Repository: CRAN
-Date/Publication: 2020-02-11 17:30:03 UTC
+Date/Publication: 2020-03-21 19:00:22 UTC
