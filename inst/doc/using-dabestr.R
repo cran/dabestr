@@ -11,6 +11,7 @@ g2 <- rnorm(N, mean = 80, sd = 50)
 g3 <- rnorm(N, mean = 100, sd = 12)
 g4 <- rnorm(N, mean = 100, sd = 50)
 gender <- c(rep('Male', N/2), rep('Female', N/2))
+dummy <- rep("Dummy", N)
 id <- 1: N
 
 
@@ -18,12 +19,13 @@ wide.data <-
   tibble::tibble(
     Control1 = c1, Control2 = c2,
     Group1 = g1, Group2 = g2, Group3 = g3, Group4 = g4,
+    Dummy = dummy,
     Gender = gender, ID = id)
 
 
 my.data   <- 
   wide.data %>%
-  tidyr::gather(key = Group, value = Measurement, -ID, -Gender)
+  tidyr::gather(key = Group, value = Measurement, -ID, -Gender, -Dummy)
 
 head(my.data)
 
@@ -146,10 +148,17 @@ plot(multi.group, color.column = Gender,
      axes.title.fontsize = 10 # default is 14.
     )
 
-## ----palette.demo, fig.width = 7, fig.height = 4------------------------------
-
+## ----palette.demo1, fig.width = 7, fig.height = 4-----------------------------
 plot(multi.group, color.column = Gender,
      palette = "Dark2" # The default is "Set2".
+     )
+
+## ----palette.demo2, fig.width = 7, fig.height = 4-----------------------------
+plot(multi.group, color.column = Gender,
+     # A custom palette consisting of a vector of colors,
+     # specified as RGB hexcode, or as a R named color.
+     # See all 657 named R colors with `colors()`.
+     palette = c("#FFA500", "sienna4")
      )
 
 ## ----different.theme, fig.width = 7, fig.height = 4---------------------------
