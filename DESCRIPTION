@@ -1,7 +1,7 @@
 Package: dabestr
 Type: Package
 Title: Data Analysis using Bootstrap-Coupled Estimation
-Version: 0.2.5
+Version: 0.3.0
 Authors@R: c(
     person("Joses W.", "Ho",
           email = "joseshowh@gmail.com", role = c("cre", "aut")),
@@ -28,16 +28,16 @@ URL: https://github.com/ACCLAB/dabestr
 BugReports: https://github.com/ACCLAB/dabestr/issues
 Encoding: UTF-8
 LazyData: true
-Depends: R (>= 3.5.0), boot, magrittr
-Imports: cowplot, dplyr, ellipsis, ggplot2 (>= 3.2), forcats, ggforce,
-        ggbeeswarm, plyr, RColorBrewer, rlang, simpleboot, stringr,
-        tibble, tidyr
+Depends: R (>= 3.5.0), magrittr, stats, utils
+Imports: boot, cowplot, dplyr, effsize, ellipsis, ggplot2 (>= 3.2),
+        forcats, ggforce, ggbeeswarm, plyr, RColorBrewer, rlang,
+        simpleboot, stringr, tibble, tidyr,
 RoxygenNote: 7.1.0
 Suggests: knitr, rmarkdown, tufte, testthat, vdiffr
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2020-04-20 13:47:55 UTC; jacuzzijo
+Packaged: 2020-07-13 03:27:57 UTC; joseshowh
 Author: Joses W. Ho [cre, aut],
   Tayfun Tumkaya [aut]
 Repository: CRAN
-Date/Publication: 2020-04-20 19:30:21 UTC
+Date/Publication: 2020-07-13 06:50:03 UTC

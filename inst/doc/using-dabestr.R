@@ -45,8 +45,17 @@ two.group.unpaired <-
 # Calling the object automatically prints out a summary.
 two.group.unpaired 
 
-## ----create.gardner.altman.plot, fig.width = 7, fig.height = 4----------------
-plot(two.group.unpaired, color.column = Gender)
+## ----compute.mean.diff--------------------------------------------------------
+two.group.unpaired.meandiff <- mean_diff(two.group.unpaired)
+
+# Calling the above object produces a textual summary of the computed effect size.
+two.group.unpaired.meandiff
+
+## ----create.gardner.altman.plot1, fig.width = 7, fig.height = 4---------------
+plot(two.group.unpaired.meandiff, color.column = Gender)
+
+## ----create.gardner.altman.plot2, fig.width = 7, fig.height = 4---------------
+two.group.unpaired %>% hedges_g() %>% plot(color.column = Gender)
 
 ## ----two.group.paired, fig.width = 7, fig.height = 4--------------------------
 two.group.paired <- 
@@ -55,10 +64,15 @@ two.group.paired <-
          idx = c("Control1", "Group1"), 
          paired = TRUE, id.col = ID)
 
-# The summary indicates this is a paired comparison. 
-two.group.paired 
 
-plot(two.group.paired, color.column = Gender)
+# The summary indicates this is a paired comparison. 
+two.group.paired
+
+
+# Create a paired plot.
+two.group.paired %>% 
+  mean_diff() %>% 
+  plot(color.column = Gender)
 
 ## ----multi.two.group.unpaired, fig.width = 7, fig.height = 4------------------
 
@@ -67,15 +81,20 @@ multi.two.group.unpaired <-
   dabest(Group, Measurement, 
          idx = list(c("Control1", "Group1"), 
                     c("Control2", "Group2")),
-         paired = FALSE
-         )
+         paired = FALSE)
 
-multi.two.group.unpaired 
 
-plot(multi.two.group.unpaired, color.column = Gender)
+# Compute the mean difference.
+multi.two.group.unpaired.meandiff <- mean_diff(multi.two.group.unpaired)
+
+
+# Create a multi-two group plot.
+multi.two.group.unpaired.meandiff %>% 
+  plot(color.column = Gender)
 
 ## ----multi.two.group.unpaired.median.summaries, fig.width = 7, fig.height = 4----
-plot(multi.two.group.unpaired, color.column = Gender, 
+plot(multi.two.group.unpaired.meandiff, 
+     color.column = Gender, 
      group.summaries = "median_quartiles")
 
 ## ----multi.two.group.paired, fig.width = 7, fig.height = 4--------------------
@@ -88,9 +107,13 @@ multi.two.group.paired <-
          paired = TRUE, id.col = ID
          )
 
-multi.two.group.paired 
 
-plot(multi.two.group.paired, color.column = Gender, slopegraph = TRUE)
+multi.two.group.paired.mean_diff <- mean_diff(multi.two.group.paired)
+
+
+plot(multi.two.group.paired.mean_diff, 
+     color.column = Gender, 
+     slopegraph = TRUE)
 
 ## ----shared.control, fig.width = 7, fig.height = 4----------------------------
 
@@ -101,9 +124,11 @@ shared.control <-
          paired = FALSE
          )
 
-shared.control 
+shared.control.mean_diff <- shared.control %>% mean_diff()
 
-plot(shared.control, color.column = Gender, rawplot.type = "swarmplot")
+plot(shared.control.mean_diff, 
+     color.column = Gender,
+     rawplot.type = "swarmplot")
 
 
 ## ----multi.group, fig.width = 7, fig.height = 4-------------------------------
@@ -116,13 +141,14 @@ multi.group <-
          paired = FALSE
         )
 
-multi.group 
+multi.group.mean_diff <- multi.group %>% mean_diff() 
 
-plot(multi.group, color.column = Gender)
+plot(multi.group.mean_diff, color.column = Gender)
 
 ## ----ylim.demo, fig.width = 7, fig.height = 4---------------------------------
 
-plot(multi.group, color.column = Gender,
+plot(multi.group.mean_diff, 
+     color.column = Gender,
      rawplot.ylim = c(-100, 200),
      effsize.ylim = c(-60, 60)
     )
@@ -130,31 +156,36 @@ plot(multi.group, color.column = Gender,
 
 ## ----markersize.groupwidth.demo, fig.width = 7, fig.height = 4----------------
 
-plot(multi.group, color.column = Gender,
+plot(multi.group.mean_diff, 
+     color.column = Gender,
      rawplot.markersize = 1,
      rawplot.groupwidth = 0.4
     )
 
 ## ----ylabel.demo, fig.width = 7, fig.height = 4-------------------------------
 
-plot(multi.group, color.column = Gender,
+plot(multi.group.mean_diff, 
+     color.column = Gender,
      rawplot.ylabel = "Rawplot Title?",
      effsize.ylabel = "My delta plot!"
     )
 
 ## ----ylabel.fontsize, fig.width = 7, fig.height = 4---------------------------
 
-plot(multi.group, color.column = Gender,
+plot(multi.group.mean_diff, 
+     color.column = Gender,
      axes.title.fontsize = 10 # default is 14.
     )
 
 ## ----palette.demo1, fig.width = 7, fig.height = 4-----------------------------
-plot(multi.group, color.column = Gender,
-     palette = "Dark2" # The default is "Set2".
+plot(multi.group.mean_diff, 
+     color.column = Gender,
+     palette = "Dark2" # The default is "Set1".
      )
 
 ## ----palette.demo2, fig.width = 7, fig.height = 4-----------------------------
-plot(multi.group, color.column = Gender,
+plot(multi.group.mean_diff, 
+     color.column = Gender,
      # A custom palette consisting of a vector of colors,
      # specified as RGB hexcode, or as a R named color.
      # See all 657 named R colors with `colors()`.
@@ -162,7 +193,8 @@ plot(multi.group, color.column = Gender,
      )
 
 ## ----different.theme, fig.width = 7, fig.height = 4---------------------------
-plot(multi.group, color.column = Gender,
+plot(multi.group.mean_diff, 
+     color.column = Gender,
      theme = ggplot2::theme_gray()
      )
 
