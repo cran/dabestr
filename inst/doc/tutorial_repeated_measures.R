@@ -8,8 +8,7 @@ knitr::opts_chunk$set(
 library(dabestr)
 
 ## -----------------------------------------------------------------------------
-set.seed(12345) # Fix the seed so the results are replicable.
-# pop_size = 10000 # Size of each population.
+set.seed(12345) # Fix the seed so the results are reproducible.
 N <- 20 # The number of samples taken from each population
 
 # Create samples
@@ -40,7 +39,7 @@ df <- tibble::tibble(
 df <- df %>%
   tidyr::gather(key = Group, value = Measurement, -ID, -Gender)
 
-## -----------------------------------------------------------------------------
+## ---- warning = FALSE---------------------------------------------------------
 two_groups_paired_sequential <- load(df,
   x = Group, y = Measurement,
   idx = c("Control 1", "Test 1"),
@@ -49,7 +48,7 @@ two_groups_paired_sequential <- load(df,
 
 print(two_groups_paired_sequential)
 
-## -----------------------------------------------------------------------------
+## ---- warning = FALSE---------------------------------------------------------
 two_groups_paired_baseline <- load(df,
   x = Group, y = Measurement,
   idx = c("Control 1", "Test 1"),
@@ -73,14 +72,14 @@ dabest_plot(two_groups_paired_sequential.mean_diff,
   raw_marker_size = 0.5, raw_marker_alpha = 0.3
 )
 
-## ---- eval = FALSE------------------------------------------------------------
+## ---- warning = FALSE, eval = FALSE-------------------------------------------
 #  dabest_plot(two_groups_paired_sequential.mean_diff,
 #    float_contrast = FALSE,
 #    raw_marker_size = 0.5, raw_marker_alpha = 0.3,
 #    contrast_ylim = c(-0.3, 1.3)
 #  )
 
-## ---- echo = FALSE------------------------------------------------------------
+## ---- warning = FALSE, echo = FALSE-------------------------------------------
 pp_plot <- dabest_plot(two_groups_paired_sequential.mean_diff,
   float_contrast = FALSE,
   raw_marker_size = 0.5, raw_marker_alpha = 0.3,
@@ -94,19 +93,19 @@ cowplot::plot_grid(
   rel_widths = c(2.5, 5, 2.5)
 )
 
-## -----------------------------------------------------------------------------
+## ---- warning = FALSE---------------------------------------------------------
 dabest_plot(two_groups_paired_baseline.mean_diff,
   raw_marker_size = 0.5, raw_marker_alpha = 0.3
 )
 
-## ---- eval = FALSE------------------------------------------------------------
+## ---- warning = FALSE, eval = FALSE-------------------------------------------
 #  dabest_plot(two_groups_paired_baseline.mean_diff,
 #    float_contrast = FALSE,
 #    raw_marker_size = 0.5, raw_marker_alpha = 0.3,
 #    contrast_ylim = c(-0.3, 1.3)
 #  )
 
-## ---- echo = FALSE------------------------------------------------------------
+## ---- warning = FALSE, echo = FALSE-------------------------------------------
 pp_plot <- dabest_plot(two_groups_paired_baseline.mean_diff,
   float_contrast = FALSE,
   raw_marker_size = 0.5, raw_marker_alpha = 0.3,
@@ -120,7 +119,7 @@ cowplot::plot_grid(
   rel_widths = c(2.5, 5, 2.5)
 )
 
-## -----------------------------------------------------------------------------
+## ---- warning = FALSE---------------------------------------------------------
 sequential_repeated_measures.mean_diff <- load(df,
   x = Group, y = Measurement,
   idx = c(
@@ -133,12 +132,12 @@ sequential_repeated_measures.mean_diff <- load(df,
 
 print(sequential_repeated_measures.mean_diff)
 
-## -----------------------------------------------------------------------------
+## ---- warning = FALSE---------------------------------------------------------
 dabest_plot(sequential_repeated_measures.mean_diff,
   raw_marker_size = 0.5, raw_marker_alpha = 0.3
 )
 
-## -----------------------------------------------------------------------------
+## ---- warning = FALSE---------------------------------------------------------
 baseline_repeated_measures.mean_diff <- load(df,
   x = Group, y = Measurement,
   idx = c(
@@ -151,12 +150,12 @@ baseline_repeated_measures.mean_diff <- load(df,
 
 print(baseline_repeated_measures.mean_diff)
 
-## -----------------------------------------------------------------------------
+## ---- warning = FALSE---------------------------------------------------------
 dabest_plot(baseline_repeated_measures.mean_diff,
   raw_marker_size = 0.5, raw_marker_alpha = 0.3
 )
 
-## -----------------------------------------------------------------------------
+## ---- warning = FALSE---------------------------------------------------------
 multi_baseline_repeated_measures.mean_diff <- load(df,
   x = Group, y = Measurement,
   idx = list(

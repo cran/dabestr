@@ -21,8 +21,8 @@ knitr::kable(df, escape = FALSE) %>%
 ## ----setup, eval = FALSE------------------------------------------------------
 #  library(dabestr)
 
-## -----------------------------------------------------------------------------
-set.seed(12345) # Fix the seed so the results are replicable.
+## ---- warning = FALSE---------------------------------------------------------
+set.seed(12345) # Fix the seed so the results are reproducible.
 # pop_size = 10000 # Size of each population.
 N <- 20 # The number of samples taken from each population
 
@@ -53,17 +53,17 @@ df <- tibble::tibble(
 df <- df %>%
   tidyr::gather(key = Treatment, value = Measurement, -ID, -Genotype, -Rep)
 
-## -----------------------------------------------------------------------------
+## ---- warning = FALSE---------------------------------------------------------
 knitr::kable(head(df))
 
-## ---- eval = FALSE------------------------------------------------------------
+## ---- warning = FALSE, eval = FALSE-------------------------------------------
 #  unpaired_delta2 <- load(df,
 #    x = Genotype, y = Measurement,
 #    experiment = Treatment, colour = Genotype,
 #    delta2 = TRUE
 #  )
 
-## ---- echo = FALSE------------------------------------------------------------
+## ---- warning = FALSE, echo = FALSE-------------------------------------------
 unpaired_delta2 <- load(df,
   x = Genotype, y = Measurement,
   experiment = Treatment, colour = Genotype,
@@ -72,18 +72,18 @@ unpaired_delta2 <- load(df,
   x1_level = c("W", "M")
 )
 
-## -----------------------------------------------------------------------------
+## ---- warning = FALSE---------------------------------------------------------
 print(unpaired_delta2)
 
-## -----------------------------------------------------------------------------
+## ---- warning = FALSE---------------------------------------------------------
 unpaired_delta2.mean_diff <- mean_diff(unpaired_delta2)
 
 print(unpaired_delta2.mean_diff)
 
-## -----------------------------------------------------------------------------
+## ---- warning = FALSE---------------------------------------------------------
 dabest_plot(unpaired_delta2.mean_diff)
 
-## -----------------------------------------------------------------------------
+## ---- warning = FALSE---------------------------------------------------------
 unpaired_delta2_specified.mean_diff <- load(df,
   x = Genotype, y = Measurement,
   experiment = Treatment, colour = Genotype,
@@ -95,7 +95,7 @@ unpaired_delta2_specified.mean_diff <- load(df,
 
 dabest_plot(unpaired_delta2_specified.mean_diff)
 
-## -----------------------------------------------------------------------------
+## ---- warning = FALSE---------------------------------------------------------
 paired_delta2.mean_diff <- load(df,
   x = Treatment, y = Measurement,
   experiment = Genotype, colour = Rep,
@@ -112,22 +112,24 @@ dabest_plot(paired_delta2.mean_diff,
   raw_marker_size = 0.5, raw_marker_alpha = 0.3
 )
 
-## -----------------------------------------------------------------------------
+## ---- warning = FALSE---------------------------------------------------------
 dabest_plot(unpaired_delta2.mean_diff, show_delta2 = FALSE)
 
 ## -----------------------------------------------------------------------------
 # cohens_d(unpaired_delta2)
 
-## -----------------------------------------------------------------------------
+## ---- warning = FALSE---------------------------------------------------------
 print(unpaired_delta2.mean_diff$boot_result)
 
-## -----------------------------------------------------------------------------
-# print(unpaired_delta2.mean_diff$permtest_pvals$permutation_test_results)
+## ---- warning = FALSE---------------------------------------------------------
 print(unpaired_delta2.mean_diff$permtest_pvals$pval_permtest)
 
-## -----------------------------------------------------------------------------
+## ---- warning = FALSE, eval = FALSE-------------------------------------------
+#  print(unpaired_delta2.mean_diff$permtest_pvals$permutation_test_results)
+
+## ---- warning = FALSE---------------------------------------------------------
 print(unpaired_delta2.mean_diff$permtest_pvals$pval_for_tests)
 
-## -----------------------------------------------------------------------------
+## ---- warning = FALSE---------------------------------------------------------
 print(unpaired_delta2.mean_diff$permtest_pvals$pvalues)
 

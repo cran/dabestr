@@ -68,7 +68,6 @@ print(two_groups_unpaired.mean_diff)
 
 ## -----------------------------------------------------------------------------
 dabest_plot(two_groups_unpaired.mean_diff)
-# dabest_plot(two_groups_unpaired.hedges_g)
 
 ## ---- eval = FALSE------------------------------------------------------------
 #  dabest_plot(two_groups_unpaired.mean_diff,
@@ -89,7 +88,7 @@ cowplot::plot_grid(
   rel_widths = c(2.5, 5, 2.5)
 )
 
-## -----------------------------------------------------------------------------
+## ---- warning = FALSE---------------------------------------------------------
 multi_2group <- load(df,
   x = Group, y = Measurement,
   idx = list(
@@ -101,7 +100,7 @@ multi_2group %>%
   mean_diff() %>%
   dabest_plot()
 
-## -----------------------------------------------------------------------------
+## ---- warnings = FALSE--------------------------------------------------------
 shared_control <- load(df,
   x = Group, y = Measurement,
   idx = c(
@@ -112,7 +111,7 @@ shared_control <- load(df,
 
 print(shared_control)
 
-## -----------------------------------------------------------------------------
+## ---- warnings = FALSE--------------------------------------------------------
 shared_control.mean_diff <- mean_diff(shared_control)
 
 print(shared_control.mean_diff)
@@ -120,7 +119,7 @@ print(shared_control.mean_diff)
 ## -----------------------------------------------------------------------------
 dabest_plot(shared_control.mean_diff)
 
-## -----------------------------------------------------------------------------
+## ---- warnings = FALSE--------------------------------------------------------
 multi_groups <- load(df,
   x = Group, y = Measurement,
   idx = list(
@@ -132,11 +131,11 @@ multi_groups <- load(df,
 
 print(multi_groups)
 
-## -----------------------------------------------------------------------------
+## ---- warnings = FALSE--------------------------------------------------------
 multi_groups.mean_diff <- mean_diff(multi_groups)
 
 print(multi_groups.mean_diff)
 
-## -----------------------------------------------------------------------------
+## ---- warnings = FALSE--------------------------------------------------------
 dabest_plot(multi_groups.mean_diff)
 
