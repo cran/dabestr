@@ -29,7 +29,7 @@ Note that `dabestr` uses the _fixed-effects_ model of meta-analysis, as opposed 
 
 The `dabestr` package can only compute weighted effect size for _mean difference only_, and not standardized measures such as *Cohen’s d*.
 
-For more information on meta-analysis, please refer to [Chapter 10](https://training.cochrane.org/handbook/current/chapter-10) of the *Cochrane* handbook: 
+For more information on meta-analysis, please refer to [Chapter 10](https://www.cochrane.org/authors/handbooks-and-manuals/handbook/current/chapter-10) of the *Cochrane* handbook: 
 
 ```{r setup, warning = FALSE, message = FALSE}
 library(dabestr)

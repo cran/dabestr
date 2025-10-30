@@ -1,4 +1,4 @@
-## ---- warning = FALSE, include = FALSE----------------------------------------
+## ----warning = FALSE, include = FALSE-----------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -7,7 +7,7 @@ knitr::opts_chunk$set(
 ## ----setup, warning = FALSE, message = FALSE----------------------------------
 library(dabestr)
 
-## ---- warning = FALSE---------------------------------------------------------
+## ----warning = FALSE----------------------------------------------------------
 set.seed(12345) # Fix the seed so the results are reproducible.
 # pop_size = 10000 # Size of each population.
 N <- 20 # The number of samples taken from each population
@@ -40,7 +40,7 @@ df <- df %>%
 ## -----------------------------------------------------------------------------
 knitr::kable(head(df))
 
-## ---- warning = FALSE---------------------------------------------------------
+## ----warning = FALSE----------------------------------------------------------
 unpaired <- load(df,
   x = Group, y = Measurement,
   idx = list(
@@ -51,24 +51,24 @@ unpaired <- load(df,
   minimeta = TRUE
 )
 
-## ---- warning = FALSE---------------------------------------------------------
+## ----warning = FALSE----------------------------------------------------------
 print(unpaired)
 
-## ---- warning = FALSE---------------------------------------------------------
+## ----warning = FALSE----------------------------------------------------------
 unpaired.mean_diff <- mean_diff(unpaired)
 
 print(unpaired.mean_diff)
 
-## ---- warning = FALSE---------------------------------------------------------
+## ----warning = FALSE----------------------------------------------------------
 unpaired.mean_diff$boot_result
 
-## ---- warning = FALSE---------------------------------------------------------
+## ----warning = FALSE----------------------------------------------------------
 dabest_plot(unpaired.mean_diff)
 
-## ---- warning = FALSE---------------------------------------------------------
+## ----warning = FALSE----------------------------------------------------------
 dabest_plot(unpaired.mean_diff, show_mini_meta = FALSE)
 
-## ---- warning = FALSE---------------------------------------------------------
+## ----warning = FALSE----------------------------------------------------------
 paired.mean_diff <- load(df,
   x = Group, y = Measurement,
   idx = list(

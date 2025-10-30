@@ -1,3 +1,6 @@
+# dabestr v2025.3.15
+This release fix some deprecation issues from ggplot. See PR #187.
+
 # dabestr v2025.3.14
 This release implements quite a couple of new features, matching up with the current DABEST in python.
 

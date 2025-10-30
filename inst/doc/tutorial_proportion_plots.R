@@ -1,4 +1,4 @@
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -7,7 +7,7 @@ knitr::opts_chunk$set(
 ## ----setup, warning = FALSE, message = FALSE----------------------------------
 library(dabestr)
 
-## ---- warning = FALSE---------------------------------------------------------
+## ----warning = FALSE----------------------------------------------------------
 set.seed(12345) # Fix the seed so the results are reproducible.
 N <- 40 # The number of samples taken from each population
 
@@ -42,10 +42,10 @@ df <- tibble::tibble(
 df <- df %>%
   tidyr::gather(key = Group, value = Success, -ID, -Gender)
 
-## ---- warning = FALSE---------------------------------------------------------
+## ----warning = FALSE----------------------------------------------------------
 knitr::kable(head(df))
 
-## ---- warning = FALSE---------------------------------------------------------
+## ----warning = FALSE----------------------------------------------------------
 two_groups_unpaired <- load(df,
   x = Group, y = Success,
   idx = c("Control 1", "Test 1"),
@@ -54,24 +54,24 @@ two_groups_unpaired <- load(df,
 
 print(two_groups_unpaired)
 
-## ---- warning = FALSE---------------------------------------------------------
+## ----warning = FALSE----------------------------------------------------------
 two_groups_unpaired.mean_diff <- mean_diff(two_groups_unpaired)
 
 print(two_groups_unpaired.mean_diff)
 
-## ---- warning = FALSE---------------------------------------------------------
+## ----warning = FALSE----------------------------------------------------------
 two_groups_unpaired.cohens_h <- cohens_h(two_groups_unpaired)
 
 print(two_groups_unpaired.cohens_h)
 
-## ---- warning = FALSE---------------------------------------------------------
+## ----warning = FALSE----------------------------------------------------------
 dabest_plot(two_groups_unpaired.mean_diff)
 dabest_plot(two_groups_unpaired.cohens_h)
 
-## ---- warning = FALSE, eval = FALSE-------------------------------------------
-#  dabest_plot(two_groups_unpaired.mean_diff, float_contrast = FALSE)
+## ----warning = FALSE, eval = FALSE--------------------------------------------
+# dabest_plot(two_groups_unpaired.mean_diff, float_contrast = FALSE)
 
-## ---- warning = FALSE, echo = FALSE-------------------------------------------
+## ----warning = FALSE, echo = FALSE--------------------------------------------
 pp_plot <- dabest_plot(two_groups_unpaired.mean_diff,
   float_contrast = FALSE,
   swarm_y_text = 11, contrast_y_text = 11
@@ -84,15 +84,15 @@ cowplot::plot_grid(
   rel_widths = c(2.5, 5, 2.5)
 )
 
-## ---- warning = FALSE---------------------------------------------------------
+## ----warning = FALSE----------------------------------------------------------
 dabest_plot(two_groups_unpaired.mean_diff, raw_bar_width = 0.15)
 
-## ---- warning = FALSE---------------------------------------------------------
+## ----warning = FALSE----------------------------------------------------------
 dabest_plot(two_groups_unpaired.mean_diff,
   swarm_label = "success", contrast_label = "difference"
 )
 
-## ---- warning = FALSE---------------------------------------------------------
+## ----warning = FALSE----------------------------------------------------------
 two_groups_baseline.mean_diff <- load(df,
   x = Group, y = Success,
   idx = c("Control 1", "Test 1"),
@@ -103,10 +103,10 @@ two_groups_baseline.mean_diff <- load(df,
 
 dabest_plot(two_groups_baseline.mean_diff)
 
-## ---- warning = FALSE, eval = FALSE-------------------------------------------
-#  dabest_plot(two_groups_baseline.mean_diff, float_contrast = FALSE)
+## ----warning = FALSE, eval = FALSE--------------------------------------------
+# dabest_plot(two_groups_baseline.mean_diff, float_contrast = FALSE)
 
-## ---- warning = FALSE, echo = FALSE-------------------------------------------
+## ----warning = FALSE, echo = FALSE--------------------------------------------
 pp_plot <- dabest_plot(two_groups_baseline.mean_diff,
   float_contrast = FALSE,
   swarm_y_text = 11, contrast_y_text = 11,
@@ -120,7 +120,7 @@ cowplot::plot_grid(
   rel_widths = c(2.5, 5, 2.5)
 )
 
-## ---- warning = FALSE---------------------------------------------------------
+## ----warning = FALSE----------------------------------------------------------
 multi_group_baseline.mean_diff <- load(df,
   x = Group, y = Success,
   idx = list(
@@ -142,7 +142,7 @@ dabest_plot(multi_group_baseline.mean_diff,
   swarm_y_text = 11, contrast_y_text = 11
 )
 
-## ---- warning = FALSE---------------------------------------------------------
+## ----warning = FALSE----------------------------------------------------------
 multi_group_sequential.mean_diff <- load(df,
   x = Group, y = Success,
   idx = list(
@@ -164,7 +164,7 @@ dabest_plot(multi_group_sequential.mean_diff,
   swarm_y_text = 11, contrast_y_text = 11
 )
 
-## ---- warning = FALSE---------------------------------------------------------
+## ----warning = FALSE----------------------------------------------------------
 multi_group_baseline_specify.mean_diff <- load(df,
   x = Group, y = Success,
   idx = c(
@@ -182,7 +182,7 @@ dabest_plot(multi_group_baseline_specify.mean_diff,
   swarm_y_text = 11, contrast_y_text = 11
 )
 
-## ---- warning = FALSE---------------------------------------------------------
+## ----warning = FALSE----------------------------------------------------------
 separate_control.mean_diff <- load(df,
   x = Group, y = Success,
   idx = list(

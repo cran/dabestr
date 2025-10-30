@@ -1,13 +1,14 @@
 Type: Package
 Package: dabestr
 Title: Data Analysis using Bootstrap-Coupled Estimation
-Version: 2025.3.14
+Version: 2025.3.15
+Maintainer: Yishan Mai <maiyishan@u.duke.nus.edu>
 Authors@R: c(
     person("Joses W.", "Ho", , "joseshowh@gmail.com", role = "aut",
            comment = c(ORCID = "0000-0002-9186-6322")),
     person("Kah Seng", "Lian", , "kahseng@u.nus.edu", role = "aut"),
     person("Ana Rosa", "Castillo", , "arosacastillo@protonmail.com", role = "aut"),
-    person("Zhuoyu", "Wang", , "wzhuoyu21@u.nus,edu", role = "aut"),
+    person("Zhuoyu", "Wang", , "wzhuoyu21@u.nus.edu", role = "aut"),
     person("Jun Yang", "Liao", , "name@example.com", role = "aut"),
     person("Felicia", "Low", , "lowminhuifelicia@gmail.com", role = "aut"),
     person("Tayfun", "Tumkaya", , role = "aut",
@@ -18,6 +19,7 @@ Authors@R: c(
            comment = c(ORCID = "0000-0002-7199-380X")),
     person("Sangyu", "Xu", , role = "ctb",
            comment = c(ORCID = "0000-0002-4927-9204")),
+    person("Zinan", "Lu", , "zinan.lu@nus.edu.sg", role = "ctb"),
     person("Hyungwon", "Choi", , role = "ctb",
            comment = c(ORCID = "0000-0002-6687-3088")),
     person("Adam", "Claridge-Chang", , role = "ctb",
@@ -42,7 +44,7 @@ URL: https://github.com/ACCLAB/dabestr,
         https://acclab.github.io/dabestr/
 Depends: R (>= 2.10)
 Imports: boot, brunnermunzel, cli, cowplot, dplyr, effsize, ggbeeswarm,
-        ggplot2 (>= 3.5.1), ggsci, grid, magrittr, RColorBrewer, rlang,
+        ggplot2 (>= 3.5.2), ggsci, grid, magrittr, RColorBrewer, rlang,
         scales, stats, stringr, tibble, tidyr, viridisLite
 Suggests: kableExtra, knitr, rmarkdown, testthat (>= 3.0.0), vdiffr
 VignetteBuilder: kableExtra, knitr
@@ -51,21 +53,22 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.2.3
 NeedsCompilation: no
-Packaged: 2025-02-26 01:56:36 UTC; liankahseng
-Author: Joses W. Ho [aut] (<https://orcid.org/0000-0002-9186-6322>),
+Packaged: 2025-10-28 03:47:42 UTC; jacobluke
+Author: Joses W. Ho [aut] (ORCID: <https://orcid.org/0000-0002-9186-6322>),
   Kah Seng Lian [aut],
   Ana Rosa Castillo [aut],
   Zhuoyu Wang [aut],
   Jun Yang Liao [aut],
   Felicia Low [aut],
-  Tayfun Tumkaya [aut] (<https://orcid.org/0000-0001-8425-3360>),
-  Jonathan Anns [ctb] (<https://orcid.org/0009-0005-8349-4986>),
-  Yishan Mai [cre, ctb] (<https://orcid.org/0000-0002-7199-380X>),
-  Sangyu Xu [ctb] (<https://orcid.org/0000-0002-4927-9204>),
-  Hyungwon Choi [ctb] (<https://orcid.org/0000-0002-6687-3088>),
-  Adam Claridge-Chang [ctb] (<https://orcid.org/0000-0002-4583-3650>),
+  Tayfun Tumkaya [aut] (ORCID: <https://orcid.org/0000-0001-8425-3360>),
+  Jonathan Anns [ctb] (ORCID: <https://orcid.org/0009-0005-8349-4986>),
+  Yishan Mai [cre, ctb] (ORCID: <https://orcid.org/0000-0002-7199-380X>),
+  Sangyu Xu [ctb] (ORCID: <https://orcid.org/0000-0002-4927-9204>),
+  Zinan Lu [ctb],
+  Hyungwon Choi [ctb] (ORCID: <https://orcid.org/0000-0002-6687-3088>),
+  Adam Claridge-Chang [ctb] (ORCID:
+    <https://orcid.org/0000-0002-4583-3650>),
   ACCLAB [cph, fnd]
-Maintainer: Yishan Mai <maiyishan@u.duke.nus.edu>
 License_is_FOSS: yes
 Repository: CRAN
-Date/Publication: 2025-02-26 12:50:02 UTC
+Date/Publication: 2025-10-30 08:00:02 UTC

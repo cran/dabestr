@@ -11,8 +11,8 @@ describe("Testing add_scaling_component_to_delta_plot function", {
     result <- add_scaling_component_to_delta_plot(delta_plot, float_contrast, boot_result, delta_x_axis_params, delta_y_axis_params, summary_data, plot_kwargs)
     expect_type(result, "list")
     expect_equal(length(result), 3) # 3 components returned
-    # Check delta_plot component
-    expect_type(result[[1]], "list")
+    # Check delta_plot component is a ggplot (compatible with both S3 and S7 classes)
+    expect_true(inherits(result[[1]], c("ggplot", "ggplot2::ggplot")))
     # TODO Add specific expectations to check if the components are created correctly
   })
 })
